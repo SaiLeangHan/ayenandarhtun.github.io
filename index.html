@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aye Nandar Htun ACCA - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            min-height: 100vh;
+            background: url('inle.png') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(135, 206, 235, 0.3); /* Light sky blue with 30% opacity for full visibility */
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background: rgba(135, 206, 235, 0.7); /* Light sky blue with 70% opacity for plastic effect */
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.3); /* Light blue shadow for plastic look */
+            margin-bottom: 15px;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(5px); /* Slight blur for glossy effect */
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 5px;
+            border: 4px solid #1e3c72;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.2);
+        }
+
+        .profile-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 5px;
+            border: 4px solid #1e3c72;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.5em;
+            margin-bottom: 8px;
+        }
+
+        .credentials {
+            color: #e0ffff; /* Light cyan instead of light sky blue */
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .tagline {
+            color: #afeeee; /* Pale turquoise instead of light blue */
+            font-size: 1.1em;
+            margin-bottom: 12px;
+        }
+
+        .location {
+            color: #b0e0e6; /* Powder blue instead of light steel blue */
+            font-size: 0.95em;
+        }
+
+        .contact-info {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info a {
+            color: #e0ffff; /* Light cyan for links */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #ffffff;
+        }
+
+        .section {
+            background: rgba(135, 206, 235, 0.6); /* Light sky blue with 60% opacity for plastic effect */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.3); /* Light blue shadow for plastic look */
+            margin-bottom: 30px;
+            backdrop-filter: blur(5px); /* Slight blur for glossy effect */
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #1e3c72;
+            padding-bottom: 10px;
+        }
+
+        .summary {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #e0ffff; /* Light cyan instead of light sky blue */
+        }
+
+        .experience-item {
+            padding: 25px;
+            background: rgba(173, 216, 230, 0.7); /* Light blue with 70% opacity for plastic effect */
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #1e3c72;
+            box-shadow: 0 3px 10px rgba(135, 206, 235, 0.2); /* Light blue shadow for plastic look */
+        }
+
+        .experience-item h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        .company {
+            color: #e0ffff; /* Light cyan instead of light sky blue */
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .duration {
+            color: #afeeee; /* Pale turquoise instead of light blue */
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #b0e0e6; /* Powder blue instead of light steel blue */
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 15px 20px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            font-weight: 500;
+            transition: transform 0.3s;
+            box-shadow: 0 3px 10px rgba(135, 206, 235, 0.2); /* Light blue shadow for plastic look */
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .education-item {
+            padding: 20px;
+            background: rgba(173, 216, 230, 0.7); /* Light blue with 70% opacity for plastic effect */
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #1e3c72;
+            box-shadow: 0 3px 10px rgba(135, 206, 235, 0.2); /* Light blue shadow for plastic look */
+        }
+
+        .education-item h3 {
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .education-item p {
+            color: #afeeee; /* Pale turquoise instead of light blue */
+            margin: 5px 0;
+        }
+
+        .achievement-badge {
+            display: inline-block;
+            background: #ffd700; /* Kept gold color */
+            color: #1e3c72;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 10px;
+            box-shadow: 0 3px 10px rgba(135, 206, 235, 0.2); /* Light blue shadow for plastic look */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #ffffff;
+            margin-top: 30px;
+            background: rgba(135, 206, 235, 0.7); /* Light sky blue with 70% opacity for plastic effect */
+            border-radius: 10px;
+            backdrop-filter: blur(5px); /* Slight blur for glossy effect */
+            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.3); /* Light blue shadow for plastic look */
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="./aye.png" alt="Aye Nandar Htun" class="profile-image" onerror="this.style.display='none';document.getElementById('placeholder').style.display='flex';">
+            <div id="placeholder" class="profile-placeholder" style="display:none;">AN</div>
+            <h1>Aye Nandar Htun ACCA</h1>
+            <p class="credentials">ACCA (UK) Member</p>
+            <p class="tagline">Experienced Audit & Accounting Professional</p>
+            <p class="location">Yangon, Myanmar</p>
+            <div class="contact-info">
+                <a href="mailto:anandarhtun@gmail.com">anandarhtun@gmail.com</a>
+                <a href="https://linkedin.com/in/aye-nandar-htun-acca-b71735128" target="_blank">LinkedIn Profile</a>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>About Me</h2>
+            <div class="summary">
+                <p>I am an ACCA (UK) qualified professional with extensive experience in auditing, accounting, and financial management. Currently serving as Assistant Lecturer at Nay Lin Aung Finance & Accountancy Academy, I combine my practical industry experience with a passion for education and knowledge sharing.</p>
+                <p style="margin-top:15px;">With over 9 years of progressive experience across leading organizations including EY Myanmar and United Pharmaceutical Company Limited, I have developed strong expertise in external audits, internal audits, financial accounting, and team management. I am also recognized as Myanmar First Top Achiever in 4 subjects out of 13 in ACCA examinations.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <h3>Assistant Lecturer</h3>
+                <p class="company">Nay Lin Aung Finance & Accountancy Academy</p>
+                <p class="duration">Part-time | Jan 2024 - Present</p>
+                <p class="location">Yangon, Myanmar</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Assistant Manager</h3>
+                <p class="company">United Pharmaceutical Company Limited</p>
+                <p class="duration">Full-time | Oct 2023 - Present</p>
+                <p class="location">Yangon, Myanmar</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Assistant Audit Manager</h3>
+                <p class="company">EY Myanmar</p>
+                <p class="duration">Full-time | Aug 2016 - Sep 2023</p>
+                <p class="location">Yangon</p>
+                <div class="description">
+                    <p>Performed both external and internal audit roles across industries including distribution, manufacturing, pharmaceuticals, construction, media, and ports.</p>
+                    <ul style="margin-left:20px;margin-top:10px;">
+                        <li>Planned and executed audits following EY methodology</li>
+                        <li>Led client meetings, defined scope, and managed audit teams</li>
+                        <li>Prepared financial statements and management letters</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3>Senior Accountant</h3>
+                <p class="company">UMG Myanmar</p>
+                <p class="duration">Jun 2013 - Jul 2016</p>
+                <p class="location">Yangon</p>
+                <div class="description">
+                    <ul style="margin-left:20px;">
+                        <li>Prepared budgets, journal entries, and reconciliations in SAP</li>
+                        <li>Generated BSPL and cash flow reports</li>
+                        <li>Presented monthly KPIs to the CEO</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-item">External Audits</div>
+                <div class="skill-item">Internal Audits</div>
+                <div class="skill-item">Financial Accounting</div>
+                <div class="skill-item">Financial Audits</div>
+                <div class="skill-item">IFRS</div>
+                <div class="skill-item">Financial Statements</div>
+                <div class="skill-item">Accounting</div>
+                <div class="skill-item">ACCA</div>
+                <div class="skill-item">Assurance</div>
+                <div class="skill-item">Data Analysis</div>
+                <div class="skill-item">Team Leadership</div>
+                <div class="skill-item">Process Improvement</div>
+                <div class="skill-item">Business Analysis</div>
+                <div class="skill-item">Microsoft Excel</div>
+                <div class="skill-item">Management Consulting</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>ACCA</h3>
+                <p><strong>Affiliate, Accounting and Finance</strong></p>
+                <p>Jun 2013 - Sep 2022</p>
+                <p class="achievement-badge">Myanmar First Top Achiever in 4 subjects out of 13</p>
+            </div>
+            <div class="education-item">
+                <h3>Yadanarbon University</h3>
+                <p><strong>B.Sc (IC) Hons</strong></p>
+                <p>2007 - 2010</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Aye Nandar Htun ACCA. All rights reserved.</p>
+            <p>Experienced Audit & Accounting Professional | Myanmar First Top Achiever ACCA</p>
+        </footer>
+    </div>
+</body>
+</html>
